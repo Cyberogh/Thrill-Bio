@@ -43,7 +43,7 @@ function App() {
     { href: 'https://www.instagram.com/thrill_trail6/', text: 'Instagram', icon: FaInstagram },
     { href: 'https://wa.me/918960186655', text: 'WhatsApp', icon: FaWhatsapp },
     { href: 'tel:+918960186655', text: 'Get In Touch', icon: FaPhoneAlt },
-    { href: 'https://thrilltrail.in', text: 'Website', icon: FaGlobe }
+    { href: 'https://thrilling.netlify.app', text: 'Website', icon: FaGlobe }
   ];
 
   return (
