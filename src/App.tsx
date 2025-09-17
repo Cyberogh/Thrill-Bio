@@ -52,7 +52,7 @@ function App() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
       style={{
         backgroundImage:
-          'url("https://i.ibb.co/JFWcjW8Z/493854166-122113725602823820-7348013424259068912-n.jpg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
+          'url("https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
         backgroundSize: 'cover',
         backgroundPosition: 'center top'
       }}
@@ -131,7 +131,7 @@ function App() {
       >
         <header className="mb-8">
           <ProfileAvatar
-            src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop&crop=face"
+            src="https://i.ibb.co/JFWcjW8Z/493854166-122113725602823820-7348013424259068912-n.jpg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop&crop=face"
             alt="Profile picture"
           />
 
