@@ -5,16 +5,19 @@ import { AnimatedName, AnimatedBio } from './components/AnimatedText';
 import { LinkButton } from './components/LinkButton';
 import { SocialIcons } from './components/SocialIcons';
 
+// ✅ Add icon imports
+import { FaInstagram, FaWhatsapp, FaPhoneAlt, FaGlobe } from 'react-icons/fa';
+
 function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  
+
   // Parallax transforms
-  const backgroundX = useTransform(mouseX, [-window.innerWidth/2, window.innerWidth/2], [-15, 15]);
-  const backgroundY = useTransform(mouseY, [-window.innerHeight/2, window.innerHeight/2], [-20, 20]);
-  const overlayX = useTransform(mouseX, [-window.innerWidth/2, window.innerWidth/2], [-35, 35]);
-  const overlayY = useTransform(mouseY, [-window.innerHeight/2, window.innerHeight/2], [-45, 45]);
+  const backgroundX = useTransform(mouseX, [-window.innerWidth / 2, window.innerWidth / 2], [-15, 15]);
+  const backgroundY = useTransform(mouseY, [-window.innerHeight / 2, window.innerHeight / 2], [-20, 20]);
+  const overlayX = useTransform(mouseX, [-window.innerWidth / 2, window.innerWidth / 2], [-35, 35]);
+  const overlayY = useTransform(mouseY, [-window.innerHeight / 2, window.innerHeight / 2], [-45, 45]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -27,47 +30,51 @@ function App() {
       }
     };
 
-    const handleMouseMove_ = requestAnimationFrame ? 
-      (e: MouseEvent) => requestAnimationFrame(() => handleMouseMove(e)) : 
-      handleMouseMove;
+    const handleMouseMove_ = requestAnimationFrame
+      ? (e: MouseEvent) => requestAnimationFrame(() => handleMouseMove(e))
+      : handleMouseMove;
 
     window.addEventListener('pointermove', handleMouseMove_);
     return () => window.removeEventListener('pointermove', handleMouseMove_);
   }, [mouseX, mouseY]);
 
+  // ✅ Add icons to link data
   const linkData = [
-    { href: '#portfolio', text: 'Instagram' },
-    { href: '#blog', text: 'WhatsApp' },
-    { href: '#contact', text: 'Get In Touch' },
-    { href: '#newsletter', text: 'Website' }
+    { href: '#portfolio', text: 'Instagram', icon: FaInstagram },
+    { href: '#blog', text: 'WhatsApp', icon: FaWhatsapp },
+    { href: '#contact', text: 'Get In Touch', icon: FaPhoneAlt },
+    { href: '#newsletter', text: 'Website', icon: FaGlobe }
   ];
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
       style={{
-        backgroundImage: 'url("https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
+        backgroundImage:
+          'url("https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
         backgroundSize: 'cover',
-        backgroundPosition: 'center top',
+        backgroundPosition: 'center top'
       }}
     >
       {/* Animated background layer */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: 'url("https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
+        style={{
+          backgroundImage:
+            'url("https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
           x: backgroundX,
           y: backgroundY,
           scale: 1.1
         }}
       />
-      
+
       {/* Blurred parallax overlay layer */}
       <motion.div
         className="absolute inset-0 opacity-20"
-        style={{ 
-          backgroundImage: 'url("https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
+        style={{
+          backgroundImage:
+            'url("https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
           backgroundSize: 'cover',
           backgroundPosition: 'center top',
           filter: 'blur(8px)',
@@ -78,7 +85,7 @@ function App() {
       />
 
       {/* Dark warm overlay */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 pointer-events-none z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -89,7 +96,7 @@ function App() {
       />
 
       {/* Vignette */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 pointer-events-none z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -116,33 +123,36 @@ function App() {
       <motion.main
         className="relative z-20 w-full max-w-[420px] px-5 py-14 text-center text-white"
         style={{
-          borderRadius: '28px',
+          borderRadius: '28px'
         }}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, delay: 0.2 }}
       >
         <header className="mb-8">
-          <ProfileAvatar 
+          <ProfileAvatar
             src="https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop&crop=face"
             alt="Profile picture"
           />
-          
-          <AnimatedName 
-            text="THRIll TRAIL"
-            className="text-4xl mb-4 tracking-wide"
-          />
-          
-          <AnimatedBio 
+
+          <AnimatedName text="THRIll TRAIL" className="text-4xl mb-4 tracking-wide" />
+
+          <AnimatedBio
             text="Creative developer & digital storyteller crafting meaningful experiences through code and design."
             className="text-base leading-relaxed opacity-90 max-w-sm mx-auto"
             style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
           />
         </header>
 
+        {/* ✅ Updated nav with icons */}
         <nav className="space-y-[18px] mb-8">
           {linkData.map((link, index) => (
-            <LinkButton key={link.href} href={link.href} index={index}>
+            <LinkButton
+              key={link.href}
+              href={link.href}
+              index={index}
+              icon={link.icon} // ✅ passing the icon prop
+            >
               {link.text}
             </LinkButton>
           ))}
@@ -164,7 +174,7 @@ function App() {
             }}
             animate={{
               y: -20,
-              x: Math.random() * window.innerWidth,
+              x: Math.random() * window.innerWidth
             }}
             transition={{
               duration: Math.random() * 12 + 8,
