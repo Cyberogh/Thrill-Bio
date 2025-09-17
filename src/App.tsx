@@ -134,8 +134,9 @@ function App() {
             src="https://i.ibb.co/JFWcjW8Z/493854166-122113725602823820-7348013424259068912-n.jpg?auto=compress&cs=tinysrgb&w=200&h=200&fit=crop&crop=face"
             alt="Profile picture"
           />
-
+          
           <AnimatedName text="THRIll TRAIL" className="text-4xl mb-4 tracking-wide" />
+
           <AnimatedBio
             text="Luxury Travels, that don't hurt your wallet."
             className="text-base leading-relaxed opacity-90 max-w-sm mx-auto"
