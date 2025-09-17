@@ -36,10 +36,10 @@ function App() {
   }, [mouseX, mouseY]);
 
   const linkData = [
-    { href: '#portfolio', text: 'View My Portfolio' },
-    { href: '#blog', text: 'Read My Blog' },
+    { href: '#portfolio', text: 'Instagram' },
+    { href: '#blog', text: 'WhatsApp' },
     { href: '#contact', text: 'Get In Touch' },
-    { href: '#newsletter', text: 'Join Newsletter' }
+    { href: '#newsletter', text: 'Website' }
   ];
 
   return (
