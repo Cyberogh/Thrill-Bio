@@ -129,7 +129,7 @@ function App() {
           />
           
           <AnimatedName 
-            text="SARAH CHEN"
+            text="THRIll TRAIL"
             className="text-4xl mb-4 tracking-wide"
           />
           
