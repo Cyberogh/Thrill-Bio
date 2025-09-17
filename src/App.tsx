@@ -138,7 +138,7 @@ function App() {
           <AnimatedName text="THRIll TRAIL" className="text-4xl mb-4 tracking-wide" />
 
           <AnimatedBio
-            text="Creative developer & digital storyteller crafting meaningful experiences through code and design."
+            text="Luxury Travels, that don't hurt your wallet."
             className="text-base leading-relaxed opacity-90 max-w-sm mx-auto"
             style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
           />
