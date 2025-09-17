@@ -40,10 +40,10 @@ function App() {
 
   // ✅ Add icons to link data
   const linkData = [
-    { href: '#portfolio', text: 'Instagram', icon: FaInstagram },
-    { href: '#blog', text: 'WhatsApp', icon: FaWhatsapp },
-    { href: '#contact', text: 'Get In Touch', icon: FaPhoneAlt },
-    { href: '#newsletter', text: 'Website', icon: FaGlobe }
+    { href: 'https://www.instagram.com/thrill_trail6/', text: 'Instagram', icon: FaInstagram },
+    { href: 'https://wa.me/918960186655', text: 'WhatsApp', icon: FaWhatsapp },
+    { href: 'tel:+918960186655', text: 'Get In Touch', icon: FaPhoneAlt },
+    { href: 'https://thrilltrail.in', text: 'Website', icon: FaGlobe }
   ];
 
   return (
