@@ -1,21 +1,23 @@
 import { motion } from 'framer-motion';
+import React from 'react';
+import { IconType } from 'react-icons';
 import { useRipple } from '../hooks/useRipple';
 
 interface LinkButtonProps {
   href: string;
   children: React.ReactNode;
   index: number;
+  icon?: IconType; // icon component from react-icons
 }
 
-export const LinkButton = ({ href, children, index }: LinkButtonProps) => {
+export const LinkButton = ({ href, children, index, icon }: LinkButtonProps) => {
   const createRipple = useRipple();
-  
-  // Alternate colors: beige for even indices (0,2), brown for odd indices (1,3)
+
   const isBeige = index % 2 === 0;
-  const bgGradient = isBeige 
-    ? "from-[#D4B5A0] to-[#C4968A]" 
-    : "from-[#8B6F47] to-[#6B5B47]";
-  const textColor = isBeige ? "text-[#5D4037]" : "text-white";
+  const bgGradient = isBeige
+    ? 'from-[#D4B5A0] to-[#C4968A]'
+    : 'from-[#8B6F47] to-[#6B5B47]';
+  const textColor = isBeige ? 'text-[#5D4037]' : 'text-white';
 
   return (
     <motion.a
@@ -27,8 +29,8 @@ export const LinkButton = ({ href, children, index }: LinkButtonProps) => {
       animate={{ y: 0, scale: 1, opacity: 1 }}
       transition={{
         duration: 0.48,
-        delay: 0.6 + (index * 0.08),
-        type: "spring",
+        delay: 0.6 + index * 0.08,
+        type: 'spring',
         damping: 15
       }}
       whileHover={{
@@ -43,14 +45,14 @@ export const LinkButton = ({ href, children, index }: LinkButtonProps) => {
       }}
       onClick={createRipple}
       style={{
-        boxShadow: isBeige 
+        boxShadow: isBeige
           ? 'inset 0 -6px 18px rgba(93,64,55,0.25), 0 4px 12px rgba(0,0,0,0.15)'
           : 'inset 0 -6px 18px rgba(0,0,0,0.35), 0 4px 12px rgba(0,0,0,0.25)'
       }}
     >
       {/* Top highlight */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-      
+
       {/* Sheen effect */}
       <motion.div
         className="absolute top-0 w-2/5 h-full bg-gradient-to-r from-white/10 via-white/25 to-white/10 transform -skew-x-12"
@@ -58,9 +60,14 @@ export const LinkButton = ({ href, children, index }: LinkButtonProps) => {
         whileHover={{ x: '120%' }}
         transition={{ duration: 0.42, ease: 'linear' }}
       />
-      
-      {/* Button content */}
+
+      {/* Button content with icon */}
       <div className="relative z-10 h-full flex items-center justify-center">
+        {icon && (
+          <span className="mr-3 flex items-center justify-center text-inherit">
+            {React.createElement(icon, { size: 20 })}
+          </span>
+        )}
         <motion.span
           whileHover={{
             letterSpacing: '0.02em',
@@ -71,9 +78,13 @@ export const LinkButton = ({ href, children, index }: LinkButtonProps) => {
           {children}
         </motion.span>
       </div>
-      
+
       {/* Bottom rim lighting */}
-      <div className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent ${isBeige ? 'via-[#5D4037]/30' : 'via-white/20'} to-transparent`} />
+      <div
+        className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent ${
+          isBeige ? 'via-[#5D4037]/30' : 'via-white/20'
+        } to-transparent`}
+      />
     </motion.a>
   );
 };
