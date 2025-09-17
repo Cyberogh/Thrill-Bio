@@ -52,7 +52,7 @@ function App() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
       style={{
         backgroundImage:
-          'url("https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1280&fit=crop")',
+          'url("https://i.ibb.co/JFWcjW8Z/493854166-122113725602823820-7348013424259068912-n.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center top'
       }}
