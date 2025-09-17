@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --beige-primary: #D4B5A0;
+  --pinkish-brown: #C4968A;
+  --text-brown: #5D4037;
+  --easing-fast: cubic-bezier(.2,.9,.3,1);
+  --easing-spring: cubic-bezier(.22,1.4,.36,1);
+  --easing-soft: cubic-bezier(.25, .46, .45, .94);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom animations */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 420ms linear forwards;
+}
+
+/* Focus styles */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid rgba(201, 189, 169, 0.4);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gradient-to-r {
+    background: #D4B5A0 !important;
+  }
+  
+  .text-\[#5D4037\] {
+    color: #3E2723 !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .bg-gradient-to-r {
+    background: #D4B5A0 !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
